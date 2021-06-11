@@ -1,22 +1,22 @@
-class ZCL_ABAP_INSTALL_CHECK definition
-  public
-  create public .
+CLASS zcl_abap_install_check DEFINITION
+  PUBLIC
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  class-methods CHECK
-    importing
-      !IV_CLASS_NAME type CLIKE
-      !IV_ERROR_TEXT type CLIKE optional
-    returning
-      value(RV_INSTALLED) type FLAG .
-  class-methods ABAP2XLSX
-    importing
-      !IV_WITH_MESSAGE type FLAG default ABAP_TRUE
-    returning
-      value(RV_INSTALLED) type FLAG .
-protected section.
-private section.
+    CLASS-METHODS check
+      IMPORTING
+        !iv_class_name      TYPE clike
+        !iv_error_text      TYPE clike OPTIONAL
+      RETURNING
+        VALUE(rv_installed) TYPE flag .
+    CLASS-METHODS abap2xlsx
+      IMPORTING
+        !iv_with_message    TYPE flag DEFAULT abap_true
+      RETURNING
+        VALUE(rv_installed) TYPE flag .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
@@ -59,6 +59,8 @@ CLASS ZCL_ABAP_INSTALL_CHECK IMPLEMENTATION.
 
 
   METHOD check.
+* https://github.com/boy0korea/ABAP_INSTALL_CHECK
+
     cl_abap_typedescr=>describe_by_name(
       EXPORTING
         p_name         = iv_class_name
