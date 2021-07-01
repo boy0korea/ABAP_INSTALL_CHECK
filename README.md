@@ -7,7 +7,7 @@ ABAP Installation Checker
 [**English**](#english)
 
 ## Korean
-한글 설명
+특정 프로그램이 설치 되어 있는지 체크하는 프로그램입니다.
 
 ## English
 You can check and safely call 3rd-party ABAP software
