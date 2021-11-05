@@ -1,27 +1,27 @@
-class ZCL_ABAP_INSTALL_CHECK definition
-  public
-  create public .
+CLASS zcl_abap_install_check DEFINITION
+  PUBLIC
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  class-methods CHECK_INSTALL
-    importing
-      !IV_CLASS_NAME type CLIKE
-      !IV_ERROR_TEXT type CLIKE optional
-    returning
-      value(RV_INSTALLED) type FLAG .
-  class-methods MESSAGE
-    importing
-      !IV_ERROR_TEXT type CLIKE .
-  class-methods IS_ABAP2XLSX_INSTALLED
-    importing
-      !IV_WITH_MESSAGE type FLAG default ABAP_TRUE
-    returning
-      value(RV_INSTALLED) type FLAG .
-protected section.
+    CLASS-METHODS check_install
+      IMPORTING
+        !iv_class_name      TYPE clike
+        !iv_error_text      TYPE clike OPTIONAL
+      RETURNING
+        VALUE(rv_installed) TYPE flag .
+    CLASS-METHODS message
+      IMPORTING
+        !iv_error_text TYPE clike .
+    CLASS-METHODS is_abap2xlsx_installed
+      IMPORTING
+        !iv_with_message    TYPE flag DEFAULT abap_true
+      RETURNING
+        VALUE(rv_installed) TYPE flag .
+  PROTECTED SECTION.
 
-  class-methods README .
-private section.
+    CLASS-METHODS readme .
+  PRIVATE SECTION.
 ENDCLASS.
 
 
@@ -76,7 +76,7 @@ CLASS ZCL_ABAP_INSTALL_CHECK IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD MESSAGE.
+  METHOD message.
     CHECK: iv_error_text IS NOT INITIAL.
 
     IF wdr_task=>application IS NOT INITIAL.
